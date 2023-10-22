@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import Body from '../components/body';
 import Button from '../components/button';
 import Heading from '../components/heading';
