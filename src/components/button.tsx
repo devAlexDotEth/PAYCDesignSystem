@@ -28,6 +28,7 @@ const El = styled.button(({ size = 'S', iconOnly = false, active, disabled, vari
   border: '1px solid transparent',
   borderRadius: 4,
   margin: 0,
+  textDecoration: 'none',
   '-webkit-font-smoothing': 'antialiased',
   '-moz-osx-font-smoothing': 'grayscale',
   fontFamily:  'Inter, sans-serif',
