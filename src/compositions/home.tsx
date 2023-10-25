@@ -70,8 +70,8 @@ export const Home: FC<{}> = () => {
               <Button size='M' variant="PRIMARY" disabled>Mint Closed</Button>
             </Card>
             <Card heading="Serum" size='Coming soon' pfp={SerumPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Apply Serum</Button>
+              <Button size='M' variant='SECONDARY' onClick={handleClick}>Burn 5 Mutants 🔥</Button>
+              <Button size='M' variant="PRIMARY" onClick={handleClick}>Buy with Sheesh</Button>
             </Card>
             <Card heading="Elementals" size='Coming soon' pfp={ElementalsPFP} direction="VERTICAL">
               <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
