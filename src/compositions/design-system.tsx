@@ -55,9 +55,9 @@ export const DesignSystem: FC<{}> = () => {
         wallet={<Wallet balance={0.0389} address="0x6972b4e81673bcec5f8b4c280E6F752C800D6ED6" profile={image} />}>
         <Button variant='TERTIARY' size='M' active>Home</Button>
         <Button variant='TERTIARY' size='M'>Portals</Button>
-        <Button variant='TERTIARY' size='M' after={<External />}>Marketplace</Button>
-        <Button variant='TERTIARY' size='M' after={<External />}>Merch</Button>
-        <Button variant='TERTIARY' size='M' after={<External />}>EngageR</Button>
+        <Button as="a" variant='TERTIARY' size='M' after={<External />} href='https://payc.auraexchange.org/' target="_blank">Marketplace</Button>
+        <Button as="a" variant='TERTIARY' size='M' after={<External />} href='./' target="_blank">Merch</Button>
+        <Button as="a" variant='TERTIARY' size='M' after={<External />} href='https://payc.engagertool.app/' target="_blank">EngageR</Button>
       </Navigation>
 
       <Stack direction='VERTICAL' localStyles={{marginTop: 86, marginBottom: 94, '@media (min-width: 1080px)': { marginBottom: 50,}}}>

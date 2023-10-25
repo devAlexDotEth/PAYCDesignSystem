@@ -4,10 +4,12 @@ import { CSSObject } from '@emotion/react';
 import Body from './body';
 
 type Props = {
+  as?: any;
   size?: 'S' | 'M' | 'L';
   variant?: 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
   children?: ReactNode;
   href?: string;
+  target?: string;
   before?: ReactNode;
   after?: ReactNode;
   iconOnly?: boolean;
@@ -67,11 +69,11 @@ const El = styled.button(({ size = 'S', iconOnly = false, active, disabled, vari
   ...(localStyles)
 }));
 
-const Button: FC<Props> = ({ size = 'S', children, variant = 'SECONDARY', before, iconOnly = false, after, localStyles, ...props }) => {
+const Button: FC<Props> = ({ size = 'S', children, variant = 'SECONDARY', before, as, iconOnly = false, after, localStyles, ...props }) => {
   return (
     <>
       {variant === 'PRIMARY' &&
-        <El size={size} variant={variant} iconOnly={iconOnly} localStyles={localStyles} {...props}>
+        <El size={size} variant={variant} iconOnly={iconOnly} as={as} localStyles={localStyles} {...props}>
           {iconOnly ? 
             <>
             {size === 'S' && <>{children}</>}
@@ -91,7 +93,7 @@ const Button: FC<Props> = ({ size = 'S', children, variant = 'SECONDARY', before
         </El>
       }
       {variant === 'SECONDARY' &&       
-        <El size={size} variant={variant} iconOnly={iconOnly} localStyles={localStyles} {...props}>
+        <El size={size} variant={variant} iconOnly={iconOnly} as={as} localStyles={localStyles} {...props}>
           {iconOnly ? 
             <>
             {size === 'S' && <>{children}</>}
@@ -110,7 +112,7 @@ const Button: FC<Props> = ({ size = 'S', children, variant = 'SECONDARY', before
         </El>
       }
       {variant === 'TERTIARY' &&       
-        <El size={size} variant={variant} iconOnly={iconOnly} localStyles={localStyles} {...props}>
+        <El size={size} variant={variant} iconOnly={iconOnly} as={as} localStyles={localStyles} {...props}>
           {iconOnly ? 
             <>
             {size === 'S' && <>{children}</>}
