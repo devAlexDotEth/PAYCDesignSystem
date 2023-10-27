@@ -1,7 +1,6 @@
 import { FC, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { CSSObject } from '@emotion/react';
-import Body from './body';
 
 type Props = {
   as?: any;
