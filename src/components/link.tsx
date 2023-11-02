@@ -8,6 +8,7 @@ type Props = {
   theme?: 'LIGHT' | 'DARK';
   children?: ReactNode;
   href?: string;
+  target?: string;
   before?: ReactNode;
   after?: ReactNode;
   localStyles?: CSSObject;
@@ -48,9 +49,9 @@ const Inner = styled.a(({ size = 'S', theme = 'LIGHT', localStyles }: Props) => 
   ...(localStyles)
 }));
 
-const Link: FC<Props> = ({ size = 'S', children, theme = 'LIGHT', before, after, iconOnly, localStyles, ...props }) => {
+const Link: FC<Props> = ({ size = 'S', children, theme = 'LIGHT', before, after, target, iconOnly, localStyles, ...props }) => {
   return (
-    <Inner size={size} theme={theme} localStyles={localStyles} {...props}>
+    <Inner size={size} theme={theme} localStyles={localStyles} target={target} {...props}>
       <>
       {iconOnly ? 
           <>

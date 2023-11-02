@@ -39,6 +39,8 @@ export const DesignSystem: FC<{}> = () => {
     alert('Button clicked!');
   };
 
+  const isConnected = true;
+
   const BoxHorSnippet = `<Box localStyles={{ padding: 48, background: '#343434' }}>...</Box>`;
   const StackHorSnippet = `<Stack space={24} direction='HORIZONTAL'>...</Stack>`;
   const StackVerSnippet = `<Stack space={24} direction='VERTICAL'>...</Stack>`;
@@ -52,7 +54,9 @@ export const DesignSystem: FC<{}> = () => {
 
       <Navigation 
         localStyles={{position: 'fixed', top: 0}}
-        wallet={<Wallet balance={0.0389} address="0x6972b4e81673bcec5f8b4c280E6F752C800D6ED6" profile={image} />}>
+        wallet={
+          isConnected ? <Button size='M'>Connect Wallet</Button> : <Wallet balance={0.0389} address="0x6972b4e81673bcec5f8b4c280E6F752C800D6ED6" profile={image} />
+        }>
         <Button variant='TERTIARY' size='M' active>Home</Button>
         <Button variant='TERTIARY' size='M'>Portals</Button>
         <Button as="a" variant='TERTIARY' size='M' after={<External />} href='https://payc.auraexchange.org/' target="_blank">Marketplace</Button>
@@ -367,9 +371,9 @@ export const DesignSystem: FC<{}> = () => {
           localStyles={{position: 'fixed', bottom: 0, left: 0}} 
           socials={
             <>
-              <Link iconOnly href="./"><Discord theme="LIGHT" size="S" /></Link>
-              <Link iconOnly href="./"><Twitter theme="LIGHT" size="S" /></Link>
-              <Link iconOnly href="./"><Youtube theme="LIGHT" size="S" /></Link>
+              <Link iconOnly href="https://discord.com/invite/SXayyRHar2" target="_blank"><Discord theme="LIGHT" size="S" /></Link>
+              <Link iconOnly href="https://twitter.com/PepeApeYC" target="_blank"><Twitter theme="LIGHT" size="S" /></Link>
+              <Link iconOnly href="https://www.youtube.com/@pepeapeyachtclub2584" target="_blank"><Youtube theme="LIGHT" size="S" /></Link>
             </>
           } 
         />
