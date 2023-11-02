@@ -16,11 +16,14 @@ const Eth = styled.div(({
   background: 'transparent',
   border: '1px solid var(--button-border)',
   height: 35,
-  display: 'flex',
+  display: 'none',
   alignItems: 'center',
   padding: '8px 12px',
   borderTopLeftRadius: 4,
   borderBottomLeftRadius: 4,
+  '@media (min-width: 600px)' :{
+    display: 'flex',
+  },
 }));
 
 const Address = styled.div(({
@@ -31,9 +34,11 @@ const Address = styled.div(({
 }));
 
 const LocalButton = styled(Button)(({
-  borderTopLeftRadius: 0,
-  borderBottomLeftRadius: 0,
-  marginLeft: -1
+  '@media (min-width: 600px)' :{
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
+    marginLeft: -1,
+  },
 }));
 
 const Wallet: FC<Props> = ({ balance = '0', address = '0x00000000000000000000000000000000000', profile }) => {

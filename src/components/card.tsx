@@ -89,7 +89,8 @@ const HeadingGroup = styled.div(({ direction = "VERTICAL"}: Props) => ({
   display: 'flex',
   flexDirection: 'column',
   ...(direction === "VERTICAL" && {
-    alignItems: 'center'
+    alignItems: 'center',
+    textAlign: 'center',
   }),
   ...(direction === "HORIZONTAL" && {
     alignItems: 'center',
