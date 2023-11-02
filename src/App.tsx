@@ -1,6 +1,7 @@
 import { Container } from './styles';
 import Home from './compositions/home';
 // import Portals from './compositions/portals';
+// import Contact from './compositions/contact';
 // import DesignSystem from './compositions/design-system';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Home />
       {/* <Portals /> */}
       {/* <DesignSystem /> */}
+      {/* <Contact /> */}
     </Container>
   );
 }
