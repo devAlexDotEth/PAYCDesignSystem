@@ -41,7 +41,7 @@ export const PortalTemplateInternal: React.FC<Props> = ({ children, title = '{Ti
         wallet={
           isConnected ? <Wallet balance={0.0389} address="0x6972b4e81673bcec5f8b4c280E6F752C800D6ED6" profile={image} /> : <Button size='M'>Connect Wallet</Button>
         }>
-        <Button variant='TERTIARY' size='M' active>Home</Button>
+        <Button variant='TERTIARY' size='M'>Home</Button>
         <Button variant='TERTIARY' size='M'>Portals</Button>
         <Button as="a" variant='TERTIARY' size='M' after={<External />} href='https://payc.auraexchange.org/' target="_blank">Marketplace</Button>
         <Button as="a" variant='TERTIARY' size='M' after={<External />} href='./' target="_blank">Merch</Button>
