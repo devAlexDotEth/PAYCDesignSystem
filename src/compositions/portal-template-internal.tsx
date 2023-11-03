@@ -59,9 +59,9 @@ export const PortalTemplateInternal: React.FC<Props> = ({ children, title = '{Ti
           backgroundSize: 'cover',
           height: '100vh',
           width: '100vw',
+          alignItems: 'center',
           '@media (min-width: 1080px)': { 
             marginBottom: 50,
-            alignItems: 'center'
           }
         }}>
 
