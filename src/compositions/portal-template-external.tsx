@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import Button from '../components/button';
 import Twitter from '../components/icons/twitter';
 import Link from '../components/link';
