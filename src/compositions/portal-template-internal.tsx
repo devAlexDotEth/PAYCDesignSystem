@@ -75,7 +75,7 @@ export const PortalTemplateInternal: React.FC<Props> = ({ children, title = '{Ti
               textAlign: 'center',
               '@media (min-width: 800px)': {
                 marginTop: 'var(--scale-60)',
-                minWidth: 900,
+                maxWidth: 900,
               }
             }}>
               <Stack direction='VERTICAL' space={'var(--scale-24)'}>
