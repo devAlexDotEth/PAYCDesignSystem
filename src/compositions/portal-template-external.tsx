@@ -27,7 +27,8 @@ export const PortalTemplateExternal: React.FC = () => {
     alert('Filter Dialog');
   };
   
-  const isConnected = false;
+  const isConnected = true;
+  const isSelected = true;
 
   return (
     <>
@@ -43,18 +44,15 @@ export const PortalTemplateExternal: React.FC = () => {
       <Stack 
         direction='VERTICAL' 
         localStyles={{
-          marginTop: 86, 
-          marginBottom: 94,
+          marginTop: 86,
           backgroundImage: `linear-gradient(to right, rgb(0 0 0 / 70%), rgb(0 0 0 / 70%)), url('${background}')`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          height: '100vh',
+          backgroundAttachment: 'fixed',
+          minHeight: '100vh',
           width: '100vw',
           alignItems: 'center',
-          '@media (min-width: 1080px)': { 
-            marginBottom: 50,
-          }
         }}>
 
           {/* Portal Tiles */}
@@ -77,45 +75,45 @@ export const PortalTemplateExternal: React.FC = () => {
               </Stack>
 
               <Box>
-                  <Stack
-                    direction='HORIZONTAL'
-                    localStyles={{
-                      justifyContent: 'space-between',
-                      background: 'rgb(0 0 0 / 50%)',
-                      padding: 'var(--scale-16)',
-                      borderTopRightRadius: 'var(--scale-8)',
-                      borderTopLeftRadius: 'var(--scale-8)'
+                <Stack
+                  direction='HORIZONTAL'
+                  localStyles={{
+                    justifyContent: 'space-between',
+                    background: 'rgb(0 0 0 / 50%)',
+                    padding: 'var(--scale-16)',
+                    borderTopRightRadius: 'var(--scale-8)',
+                    borderTopLeftRadius: 'var(--scale-8)'
+                  }}>
+                    <Button size='S' variant='SECONDARY' onClick={filterClick} active after={<ChevronDown size="S" />}>Filter by</Button>
+                    {isSelected ? <Button size='S' variant='PRIMARY' onClick={handleClick}>Exchange Selected</Button> : <Button size='S' variant='PRIMARY' onClick={handleClick} disabled>Exchange Selected</Button>}
+                </Stack>
+                <Box 
+                  localStyles={{
+                    background: 'rgb(255 255 255 / 10%)', 
+                    minHeight: 300, 
+                    borderBottomRightRadius: 'var(--scale-8)',
+                    borderBottomLeftRadius: 'var(--scale-8)',
+                  }}>
+                    <Grid columns={1} localStyles={{
+                      gridTemplateColumns: 'repeat(2, 1fr);',
+                      padding: 'var(--scale-24)',
+                      '@media (min-width: 600px)' :{
+                        gridTemplateColumns: 'repeat(3, 1fr);',
+                      },
+                      '@media (min-width: 1000px)' :{
+                        gridTemplateColumns: 'repeat(4, 1fr);',
+                      },
                     }}>
-                      <Button size='S' variant='SECONDARY' onClick={filterClick} active after={<ChevronDown size="S" />}>Filter by</Button>
-                      {isConnected ? <Button size='S' variant='PRIMARY' onClick={handleClick}>Exchange Selected</Button> : <Button size='S' variant='PRIMARY' onClick={handleClick} disabled>Exchange Selected</Button>}
-                  </Stack>
-                  <Box 
-                    localStyles={{
-                      background: 'rgb(255 255 255 / 10%)', 
-                      minHeight: 300, 
-                      borderBottomRightRadius: 'var(--scale-8)',
-                      borderBottomLeftRadius: 'var(--scale-8)',
-                    }}>
-                      <Grid columns={1} localStyles={{
-                        gridTemplateColumns: 'repeat(2, 1fr);',
-                        padding: 'var(--scale-24)',
-                        '@media (min-width: 600px)' :{
-                          gridTemplateColumns: 'repeat(3, 1fr);',
-                        },
-                        '@media (min-width: 1000px)' :{
-                          gridTemplateColumns: 'repeat(4, 1fr);',
-                        },
-                      }}>
-                        <Tile active image={PFP} title="678" />
-                        <Tile image={PFP} title="678" />
-                        <Tile image={PFP} title="678" />
-                        <Tile image={PFP} title="678" />
-                        <Tile image={PFP} title="678" />
-                        <Tile image={PFP} title="678" />
-                        <Tile image={PFP} title="678" />
-                        <Tile image={PFP} title="678" />
-                      </Grid>
-                  </Box>
+                      <Tile active image={PFP} title="678" />
+                      <Tile image={PFP} title="678" />
+                      <Tile image={PFP} title="678" />
+                      <Tile image={PFP} title="678" />
+                      <Tile image={PFP} title="678" />
+                      <Tile image={PFP} title="678" />
+                      <Tile image={PFP} title="678" />
+                      <Tile image={PFP} title="678" />
+                    </Grid>
+                </Box>
             </Box>
           </Grid>
 
