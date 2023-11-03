@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import Button from '../components/button';
 import Twitter from '../components/icons/twitter';
 import Link from '../components/link';
@@ -14,13 +15,10 @@ import Box from '../components/box';
 import background from '../assets/portals/degen/background.gif';
 import Body from '../components/body';
 import ChevronDown from '../components/icons/chevron';
+import PFP from '../assets/pfp/legends.png';
+import Tile from '../components/tile';
 
-type Props = {
-  children: React.ReactNode;
-  title?: string;
-}
-
-export const PortalTemplateExternal: React.FC<Props> = ({ children, title = '{Title}' }) => {
+export const PortalTemplateExternal: React.FC = () => {
 
   const handleClick = () => {
     alert('Select PepeApes!');
@@ -75,7 +73,7 @@ export const PortalTemplateExternal: React.FC<Props> = ({ children, title = '{Ti
               }
             }}>
               <Stack direction='VERTICAL' space={'var(--scale-24)'} localStyles={{alignItems: 'center'}}>
-                <Heading level='3'>{title} Portal</Heading>
+                <Heading level='3'>Frogtober Portal</Heading>
                 <Body size='M'localStyles={{maxWidth: '60ch'}}>SELECT NFTs YOU WOULD LIKE TO SEND THROUGH PORTAL AND THEN CLICK THE EXCHANGE BUTTON</Body>
               </Stack>
 
@@ -99,7 +97,25 @@ export const PortalTemplateExternal: React.FC<Props> = ({ children, title = '{Ti
                       borderBottomRightRadius: 'var(--scale-8)',
                       borderBottomLeftRadius: 'var(--scale-8)',
                     }}>
-                      {children}
+                      <Grid columns={1} localStyles={{
+                        gridTemplateColumns: 'repeat(2, 1fr);',
+                        padding: 'var(--scale-24)',
+                        '@media (min-width: 600px)' :{
+                          gridTemplateColumns: 'repeat(3, 1fr);',
+                        },
+                        '@media (min-width: 1000px)' :{
+                          gridTemplateColumns: 'repeat(4, 1fr);',
+                        },
+                      }}>
+                        <Tile active image={PFP} title="678" />
+                        <Tile image={PFP} title="678" />
+                        <Tile image={PFP} title="678" />
+                        <Tile image={PFP} title="678" />
+                        <Tile image={PFP} title="678" />
+                        <Tile image={PFP} title="678" />
+                        <Tile image={PFP} title="678" />
+                        <Tile image={PFP} title="678" />
+                      </Grid>
                   </Box>
             </Box>
           </Grid>
