@@ -71,11 +71,12 @@ export const PortalTemplateExternal: React.FC<Props> = ({ children, title = '{Ti
               '@media (min-width: 800px)': {
                 marginTop: 'var(--scale-60)',
                 maxWidth: 900,
+                width: '100%'
               }
             }}>
-              <Stack direction='VERTICAL' space={'var(--scale-24)'}>
+              <Stack direction='VERTICAL' space={'var(--scale-24)'} localStyles={{alignItems: 'center'}}>
                 <Heading level='3'>{title} Portal</Heading>
-                <Body size='M'>SELECT NFTs YOU WOULD LIKE TO SEND THROUGH PORTAL AND THEN CLICK THE EXCHANGE BUTTON</Body>
+                <Body size='M'localStyles={{maxWidth: '60ch'}}>SELECT NFTs YOU WOULD LIKE TO SEND THROUGH PORTAL AND THEN CLICK THE EXCHANGE BUTTON</Body>
               </Stack>
 
               <Box>
