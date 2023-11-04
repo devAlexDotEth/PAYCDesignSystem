@@ -1,7 +1,7 @@
 import { Container } from './styles';
-// import Home from './compositions/home';
+import Home from './compositions/home';
 // import PortalTemplateExternal from './compositions/portal-template-external';
-import PortalTemplateInternal from './compositions/portal-template-internal';
+// import PortalTemplateInternal from './compositions/portal-template-internal';
 // import Portals from './compositions/portals';
 // import Contact from './compositions/contact';
 // import DesignSystem from './compositions/design-system';
@@ -10,7 +10,7 @@ function App() {
   
   return (
     <Container>
-      {/* <Home /> */}
+      <Home />
       {/* <Portals /> */}
       {/* <DesignSystem /> */}
       {/* <Contact /> */}
@@ -19,7 +19,7 @@ function App() {
       {/* <PortalTemplateExternal /> */}
 
       {/* NOTE ONLY: Hosted in our app */}
-      <PortalTemplateInternal />
+      {/* <PortalTemplateInternal /> */}
 
     </Container>
   );
