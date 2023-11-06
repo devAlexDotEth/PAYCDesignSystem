@@ -9,7 +9,7 @@ import Body from './body';
 type ElProps = {
   heading?: string;
   pfp?: string;
-  size?: string;
+  description?: string;
   children?: ReactNode;
   localStyles?: CSSObject;
 }
@@ -18,7 +18,7 @@ type Props = {
   heading?: string;
   direction: 'HORIZONTAL' | 'VERTICAL';
   pfp?: string;
-  size?: string;
+  description?: string;
   children?: ReactNode;
   localStyles?: CSSObject;
 }
@@ -88,6 +88,7 @@ const Inner = styled.div(({ direction = "VERTICAL"}: Props) => ({
 const HeadingGroup = styled.div(({ direction = "VERTICAL"}: Props) => ({
   display: 'flex',
   flexDirection: 'column',
+  gap: 'var(--scale-4)',
   ...(direction === "VERTICAL" && {
     alignItems: 'center',
     textAlign: 'center',
@@ -143,7 +144,7 @@ const Image = styled.img(({ direction = "VERTICAL"}: Props) => ({
   }),
 }));
 
-const Card: FC<Props> = ({ localStyles, pfp = PFP, size = "6969", children, heading = "Title", direction = 'HORIZONTAL', ...props }) => {
+const Card: FC<Props> = ({ localStyles, pfp = PFP, description = "Collection Size • 6969", children, heading = "Title", direction = 'HORIZONTAL', ...props }) => {
   return (
     <El localStyles={localStyles} {...props}>
       <Content direction={direction}>
@@ -151,7 +152,7 @@ const Card: FC<Props> = ({ localStyles, pfp = PFP, size = "6969", children, head
         <Inner direction={direction}>
           <HeadingGroup direction={direction} localStyles={{width: 'auto'}}>
             <Heading level="4">{heading}</Heading>
-            <Body size='M'>Collection size • {size}</Body>
+            <Body size='S'>{description}</Body>
           </HeadingGroup>
           <ButtonGroup direction={direction}>
             {children}

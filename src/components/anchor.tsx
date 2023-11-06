@@ -49,7 +49,7 @@ const Inner = styled.a(({ size = 'S', theme = 'LIGHT', localStyles }: Props) => 
   ...(localStyles)
 }));
 
-const Link: FC<Props> = ({ size = 'S', children, theme = 'LIGHT', before, after, target, iconOnly, localStyles, ...props }) => {
+const Anchor: FC<Props> = ({ size = 'S', children, theme = 'LIGHT', before, after, target, iconOnly, localStyles, ...props }) => {
   return (
     <Inner size={size} theme={theme} localStyles={localStyles} target={target} {...props}>
       <>
@@ -73,4 +73,4 @@ const Link: FC<Props> = ({ size = 'S', children, theme = 'LIGHT', before, after,
   );
 }
 
-export default Link;
+export default Anchor;

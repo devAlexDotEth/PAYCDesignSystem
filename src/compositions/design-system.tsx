@@ -4,7 +4,6 @@ import Button from '../components/button';
 import Heading from '../components/heading';
 import Eth from '../components/icons/eth';
 import Twitter from '../components/icons/twitter';
-import Link from '../components/link';
 import Box from '../components/box';
 import Code from '../components/code';
 import Stack from '../components/stack';
@@ -29,11 +28,10 @@ import GenesisPFP from '../assets/pfp/genesis.png';
 import DegenHoursPFP from '../assets/pfp/degenhours.png';
 import FrogtoberPFP from '../assets/pfp/frogtober.png';
 import LegendsPFP from '../assets/pfp/legends.png';
-import MutantsPFP from '../assets/pfp/mutants.png';
-import SerumPFP from '../assets/pfp/serum.png';
-import ElementalsPFP from '../assets/pfp/elementals.png';
 import Dialog from '../components/dialog';
 import DialogHeader from "../assets/dialog-header.png";
+import AmountInput from '../components/amountInput';
+import Anchor from '../components/anchor';
 
 export const DesignSystem: FC<{}> = () => {
   
@@ -47,9 +45,23 @@ export const DesignSystem: FC<{}> = () => {
   const StackHorSnippet = `<Stack space={24} direction='HORIZONTAL'>...</Stack>`;
   const StackVerSnippet = `<Stack space={24} direction='VERTICAL'>...</Stack>`;
   const GridSnippet = `<Grid columns={3} gap={24}>...</Grid>`;
-  const LinkSnippet = `<Link href="#">Link</Link>`;
-  const LinkBeforeSnippet = `<Link before={<Discord />} href="#">Link</Link>`;
-  const LinkAfterSnippet = `<Link after={<Twitter />} href="#">Link</Link>`;
+  const AnchorSnippet = `<Anchor href="#">Anchor</Anchor>`;
+  const AnchorBeforeSnippet = `<Anchor before={<Discord />} href="#">Anchor</Anchor>`;
+  const AnchorAfterSnippet = `<Anchor after={<Twitter />} href="#">Anchor</Anchor>`;
+  const DialogSnippet = `<Dialog backdropClose={() => setIsRevealed(!isRevealed)} image={DialogHeader}>...</Dialog>`;
+  const LogoSnippet = `<Logo />`;
+  const CardVerticalSnippet = `<Card heading="Genesis" description='Collection Size • 7,777' pfp={GenesisPFP} direction="VERTICAL">`
+  const CardHorizonalSnippet = `<Card heading="Degen Hours" description='Untransferrable & Secure' pfp={DegenHoursPFP} direction="HORIZONTAL">`
+  const BannerSnippet = `<Banner pfp={PFP} heading='PAYC Legends' description='Elvis Presley via the Rockabilly Hall of Fame Museum'>...</Banner>`
+  const ButtonSmallPrimary = `<Button size='S' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonMediumPrimary = `<Button size='M' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonLargePrimary = `<Button size='L' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonSmallSecondary = `<Button size='S' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonMediumSecondary = `<Button size='M' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonLargeSecondary = `<Button size='L' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonSmallTeriary = `<Button size='S' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonMediumTeriary = `<Button size='M' variant="PRIMARY" onClick={handleClick}>...</Button>`
+  const ButtonLargeTeriary = `<Button size='L' variant="PRIMARY" onClick={handleClick}>...</Button>`
 
   const [isRevealed, setIsRevealed] = useState(false);
 
@@ -70,89 +82,91 @@ export const DesignSystem: FC<{}> = () => {
 
       <Stack direction='VERTICAL' localStyles={{marginTop: 86, marginBottom: 94, '@media (min-width: 1080px)': { marginBottom: 50,}}}>
 
-        <Banner pfp={PFP} heading='PAYC Legends'>
-          <Button size='M' variant="PRIMARY" onClick={handleClick}>View Collection</Button>
-        </Banner>
-
-          {/* Home Tiles */}
-          <Grid
-            columns={1}
-            gap={'var(--scale-48)'}
-            localStyles={{
-              padding: 'var(--scale-48)',
-              gridTemplateColumns: '1fr',
-              '@media (min-width: 800px)' :{
-                gridTemplateColumns: '1fr 1fr',
-              },
-              '@media (min-width: 1200px)' :{
-                gridTemplateColumns: '1fr 1fr 1fr 1fr',
-              },
-            }}>
-            <Card heading="Genesis" size='7,777' pfp={GenesisPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Select Portal</Button>
-            </Card>
-            <Card heading="Mutants" size='2,801' pfp={MutantsPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" disabled>Mint Closed</Button>
-            </Card>
-            <Card heading="Serum" size='Coming soon' pfp={SerumPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>Burn 5 Mutants 🔥</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Buy with Sheesh</Button>
-            </Card>
-            <Card heading="Elementals" size='Coming soon' pfp={ElementalsPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Apply Serum</Button>
-            </Card>
-            <Card heading="Degen Hours" size='1,302' pfp={DegenHoursPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Select Portal</Button>
-            </Card>
-            <Card heading="Frogtober" size='2,615' pfp={FrogtoberPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Select Portal</Button>
-            </Card>
-            <Card heading="Legends" size='1,000' pfp={LegendsPFP} direction="VERTICAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" disabled>Portal Paused</Button>
-            </Card>
-  
-          </Grid>
-
-
-          {/* Portal Tiles */}
-          <Grid
-            columns={1}
-            gap={'var(--scale-48)'} 
-            localStyles={{
-              padding: 'var(--scale-48)',
-              gridTemplateColumns: '1fr',
-              '@media (min-width: 800px)' :{
-                gridTemplateColumns: '1fr 1fr',
-              },
-              '@media (min-width: 1200px)' :{
-                gridTemplateColumns: '1fr',
-              },
-            }}>
-            <Card heading="Degen Hours" size='1,302' pfp={DegenHoursPFP} direction="HORIZONTAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Select Portal</Button>
-            </Card>
-            <Card heading="Frogtober" size='2,615' pfp={FrogtoberPFP} direction="HORIZONTAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Select Portal</Button>
-            </Card>
-            <Card heading="Legends" size='1,000' pfp={LegendsPFP} direction="HORIZONTAL">
-              <Button size='M' variant='SECONDARY' onClick={handleClick}>View Collection</Button>
-              <Button size='M' variant="PRIMARY" onClick={handleClick}>Select Portal</Button>
-            </Card>
-          </Grid>
-          
-
-
         <Stack space={'var(--scale-72)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)'}}>
           <Heading level="1">PAYC Design System</Heading>
         </Stack>
+
+
+        <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)'}}>
+          <Heading level="3">Component / Banner</Heading>
+          <Code>{BannerSnippet}</Code>
+        </Stack>
+        <Banner pfp={PFP} heading='PAYC Legends' description='Elvis Presley via the Rockabilly Hall of Fame Museum'>
+          <Button size='M' variant="PRIMARY" as="a" href='https://hub.auraexchange.org/collection/ethereum/0x0f4186a53774f4c73cb90f278d26094cce765720' target="_blank">View Collection</Button>
+        </Banner>
+
+
+        <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)', paddingBottom: 0}}>
+          <Heading level="3">Component / Cards / Vertical</Heading>
+          <Code>{CardVerticalSnippet}</Code>
+        </Stack>
+        <Grid
+        columns={1}
+        localStyles={{
+          padding: 'var(--scale-24)',
+          gap: 'var(--scale-24)',
+          gridTemplateColumns: '1fr',
+          '@media (min-width: 600px)' :{
+            padding: 'var(--scale-48)',
+            gap: 'var(--scale-48)',
+          },
+          '@media (min-width: 800px)' :{
+            gridTemplateColumns: '1fr 1fr',
+          },
+          '@media (min-width: 1200px)' :{
+            gridTemplateColumns: '1fr 1fr 1fr 1fr',
+          },
+          '@media (min-width: 2000px)' :{
+            gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+          },
+        }}>
+          <Card heading="Genesis" description='Collection Size • 7,777' pfp={GenesisPFP} direction="VERTICAL">
+            <Button as="a" size='M' variant='SECONDARY' href='https://hub.auraexchange.org/collection/Ethereum/0x2d0d57d004f82e9f4471caa8b9f8b1965a814154' target="_blank">View Collection</Button>
+            <Button as="a" size='M' variant="PRIMARY" href='/portals'>View Portals</Button>
+          </Card>
+          <Card heading="Degen Hours" description={`Untransferrable & Secure`} pfp={DegenHoursPFP} direction="VERTICAL">
+            <Button as="a" size='M' variant='SECONDARY' href='https://hub.auraexchange.org/collection/ethereum/0x577c0379ba192c3293f207b40327f34d18f9e7e3' target="_blank">View Collection</Button>
+            <Button as="a" size='M' variant="SECONDARY" href='...' target="_blank" disabled>Select Portal</Button>
+          </Card>
+          <Card heading="Frogtober" description='Chance to Pull a Rare' pfp={FrogtoberPFP} direction="VERTICAL">
+            <Button as="a" size='M' variant='SECONDARY' href='https://hub.auraexchange.org/collection/ethereum/0xea3a82c8fdd0f7e7fd36a58900ff9aa39995c9ce' target="_blank">View Collection</Button>
+            <Button as="a" size='M' variant="SECONDARY" href='...' target="_blank" disabled>Select Portal</Button>
+          </Card>
+          <Card heading="Legends" description='Past &amp; Present Icons' pfp={LegendsPFP} direction="VERTICAL">
+            <Button as="a" size='M' variant='SECONDARY' href='https://hub.auraexchange.org/collection/ethereum/0x0f4186a53774f4c73cb90f278d26094cce765720' target="_blank">View Collection</Button>
+            <Button as="a" size='M' variant="SECONDARY" href='...' target="_blank" disabled>Portal Paused</Button>
+          </Card>
+        </Grid>
+
+
+        {/* Portal Tiles */}
+
+        <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{paddingLeft: 'var(--scale-48)', paddingRight: 'var(--scale-48)'}}>
+          <Heading level="3">Component / Cards / Horizontal</Heading>
+          <Code>{CardHorizonalSnippet}</Code>
+        </Stack>
+        <Grid
+          columns={1}
+          localStyles={{
+            padding: 'var(--scale-24)',
+            gap: 'var(--scale-24)',
+            gridTemplateColumns: '1fr',
+            '@media (min-width: 600px)' :{
+              padding: 'var(--scale-48)',
+              gap: 'var(--scale-48)',
+            },
+            '@media (min-width: 800px)' :{
+              gridTemplateColumns: '1fr 1fr',
+            },
+            '@media (min-width: 1200px)' :{
+              gridTemplateColumns: '1fr',
+            },
+        }}>
+          <Card heading="Degen Hours" description='Untransferrable & Secure' pfp={DegenHoursPFP} direction="HORIZONTAL">
+            <Button as="a" size='M' variant='SECONDARY' href='https://hub.auraexchange.org/collection/ethereum/0x577c0379ba192c3293f207b40327f34d18f9e7e3' target="_blank">View Collection</Button>
+            <Button as="a" size='M' variant="PRIMARY" href='...' target="_blank" disabled>Select Portal</Button>
+          </Card>
+        </Grid>
 
         {/* LAYOUT */}
         <Stack space={'var(--scale-72)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)'}}>
@@ -196,7 +210,8 @@ export const DesignSystem: FC<{}> = () => {
         {/* LOGO */}
         <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)'}}>
           <Box localStyles={{ marginBottom: 'var(--scale-24)' }}>
-            <Heading level="3">Component / Logo</Heading>
+            <Heading level="3" localStyles={{marginBottom: 'var(--scale-12)'}}>Component / Logo</Heading>
+            <Code>{LogoSnippet}</Code>
           </Box>
           <Logo />
         </Stack>
@@ -204,13 +219,18 @@ export const DesignSystem: FC<{}> = () => {
         {/* DIALOG */}
         <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)', alignItems: "start"}}>
           <Box localStyles={{ marginBottom: 'var(--scale-24)' }}>
-            <Heading level="3" theme='LIGHT'>Component / Dialog</Heading>
+            <Heading level="3" theme='LIGHT' localStyles={{marginBottom: 'var(--scale-12)'}}>Component / Dialog</Heading>
+            <Code>{DialogSnippet}</Code>
           </Box>
           <Button size='L' onClick={() => setIsRevealed(!isRevealed)}>Open Dialog</Button>
           {isRevealed &&
             <Dialog backdropClose={() => setIsRevealed(!isRevealed)} image={DialogHeader}>
-              <Body size='L'>Message</Body>
-              <Button size='M' variant="PRIMARY" onClick={() => setIsRevealed(!isRevealed)}>Ok</Button>
+              <Body size='L'>Purchase serums with $SHS</Body>
+              <AmountInput decrease={() => {}} increase={() => {}} amount={0} />
+              <Stack direction="HORIZONTAL" space={'var(--scale-12)'} localStyles={{justifyContent: 'center'}}>
+                <Button size='M' variant="SECONDARY" onClick={() => setIsRevealed(!isRevealed)} localStyles={{marginTop: 'var(--scale-8)'}}>Close</Button>
+                <Button size='M' variant="PRIMARY" onClick={() => {}} localStyles={{marginTop: 'var(--scale-8)'}}>Submit</Button>
+              </Stack>
             </Dialog>
           }
         </Stack>
@@ -289,7 +309,12 @@ export const DesignSystem: FC<{}> = () => {
         {/* BUTTON */}
         <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)'}}>
           <Box localStyles={{ marginBottom: 'var(--scale-24)' }}>
-            <Heading level="3">Component / Button</Heading>
+            <Heading level="3" localStyles={{marginBottom: 'var(--scale-12)'}}>Component / Button</Heading>
+            <Stack direction='VERTICAL' space={'var(--scale-12)'}>
+              <Code>{ButtonSmallPrimary}</Code>
+              <Code>{ButtonMediumPrimary}</Code>
+              <Code>{ButtonLargePrimary}</Code>
+            </Stack>
           </Box>
 
           <Box localStyles={{ display: 'flex', alignItems: 'center', gap: 'var(--scale-24)', marginBottom: 'var(--scale-60)' }}>
@@ -317,19 +342,19 @@ export const DesignSystem: FC<{}> = () => {
 
         </Stack>
 
-        {/* LINK */}
+        {/* ANCHOR */}
         <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)'}}>
           <Box localStyles={{ marginBottom: 'var(--scale-24)' }}>
             <Heading level="3">Component / Link</Heading>
           </Box>
           <Box localStyles={{ display: 'flex', alignItems: 'center', gap: 'var(--scale-24)' }}>
-            <Link href="#">Link</Link>
-            <Link before={<Discord />} href="#">Link</Link>
-            <Link after={<Twitter />} href="#">Link</Link>
+            <Anchor href="#">Link</Anchor>
+            <Anchor before={<Discord />} href="#">Link</Anchor>
+            <Anchor after={<Twitter />} href="#">Link</Anchor>
           </Box>
-          <Code>{LinkSnippet}</Code>
-          <Code>{LinkBeforeSnippet}</Code>
-          <Code>{LinkAfterSnippet}</Code>
+          <Code>{AnchorSnippet}</Code>
+          <Code>{AnchorBeforeSnippet}</Code>
+          <Code>{AnchorAfterSnippet}</Code>
         </Stack>
 
         {/* HEADING - LIGHT */}
@@ -386,12 +411,13 @@ export const DesignSystem: FC<{}> = () => {
 
         {/* FOOTER */}
         <Footer
+          contactLink='/contact'
           localStyles={{position: 'fixed', bottom: 0, left: 0}} 
           socials={
             <>
-              <Link iconOnly href="https://discord.com/invite/SXayyRHar2" target="_blank"><Discord theme="LIGHT" size="S" /></Link>
-              <Link iconOnly href="https://twitter.com/PepeApeYC" target="_blank"><Twitter theme="LIGHT" size="S" /></Link>
-              <Link iconOnly href="https://www.youtube.com/@pepeapeyachtclub2584" target="_blank"><Youtube theme="LIGHT" size="S" /></Link>
+              <Anchor iconOnly href="https://discord.com/invite/SXayyRHar2" target="_blank"><Discord theme="LIGHT" size="S" /></Anchor>
+              <Anchor iconOnly href="https://twitter.com/PepeApeYC" target="_blank"><Twitter theme="LIGHT" size="S" /></Anchor>
+              <Anchor iconOnly href="https://www.youtube.com/@pepeapeyachtclub2584" target="_blank"><Youtube theme="LIGHT" size="S" /></Anchor>
             </>
           } 
         />

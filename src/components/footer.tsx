@@ -4,15 +4,12 @@ import { CSSObject } from '@emotion/react';
 import Body from './body';
 import Stack from './stack';
 import Button from './button';
-import Fast from './icons/fast';
-import Medium from './icons/medium';
-import Slow from './icons/slow';
-import Eth from './icons/eth';
+import GasTracker from './gas';
 
 export type Props = {
   localStyles?: CSSObject;
   socials?: ReactNode;
-  contactNavigation?:  () => void;
+  contactLink?:  string;
   ethPrice?: number | string | ReactNode;
   highGas?: number | string | ReactNode;
   mediumGas?: number | string | ReactNode;
@@ -38,25 +35,26 @@ const El = styled.div(({ localStyles }: Props) => ({
 }));
 
 
-export const Footer: FC<Props> = ({socials, contactNavigation, ethPrice = '1,701.55', highGas = '11', mediumGas = '8', lowGas = '6', localStyles}) => {
+export const Footer: FC<Props> = ({socials, contactLink, ethPrice = '1,701.55', highGas = '11', mediumGas = '8', lowGas = '6', localStyles}) => {
   return (
     <El localStyles={localStyles}>
       <Stack direction='HORIZONTAL' space={'var(--scale-12)'} localStyles={{alignItems: 'center'}} >
         <Body localStyles={{
           display: 'none', 
           '@media (min-width: 1080px)': {
-            display: 'flex'
+            display: 'flex',
+            marginRight: 'var(--scale-16)'
           }
         }}>
           Pepe Ape Yacht Club ™
         </Body>
-        <Button size='S' variant='SECONDARY' onClick={contactNavigation} 
+        <Button as="a" size='S' variant='SECONDARY' href={contactLink} 
           localStyles={{
             width: '100%', 
             marginBottom: 'var(--scale-16)',
             '@media (min-width: 1080px)': {
               display: 'none'
-              }
+            }
           }}>
             Contact us
         </Button>
@@ -66,29 +64,15 @@ export const Footer: FC<Props> = ({socials, contactNavigation, ethPrice = '1,701
           localStyles={{
             width: 'auto', 
             alignItems: 'center',
-            display: 'none', '@media (min-width: 1080px)': {display: 'flex'},
+            display: 'none', 
+            '@media (min-width: 1080px)': {
+              display: 'flex'
+            },
           }}>
           {socials}
         </Stack>
       </Stack>
-      <Stack direction='HORIZONTAL' space={'var(--scale-16)'} localStyles={{maxWidth: 225, margin: '0 auto'}}>
-        <Stack direction='HORIZONTAL' space={'var(--scale-4)'} localStyles={{alignItems: 'center'}}>
-          <Eth theme="LIGHT" size="S" />
-          <Body size='S'>${ethPrice}</Body>
-        </Stack>
-        <Stack direction='HORIZONTAL' space={'var(--scale-4)'} localStyles={{alignItems: 'center'}}>
-          <Fast theme="LIGHT" size="S" />
-          <Body size='S'>{highGas}</Body>
-        </Stack>
-        <Stack direction='HORIZONTAL' space={'var(--scale-4)'} localStyles={{alignItems: 'center'}}>
-          <Medium theme="LIGHT" size="S" />
-          <Body size='S'>{mediumGas}</Body>
-        </Stack>
-        <Stack direction='HORIZONTAL' space={'var(--scale-4)'} localStyles={{alignItems: 'center'}}>
-          <Slow theme="LIGHT" size="S" />
-          <Body size='S'>{lowGas}</Body>
-        </Stack>
-      </Stack>
+      <GasTracker />
     </El>
   );
 }

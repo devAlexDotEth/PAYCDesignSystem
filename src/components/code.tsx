@@ -15,7 +15,7 @@ const Outer = styled.code<CodeProps>`
   border: 1px solid var(--dark-300);
   display: block;
   border-radius: 4px;
-  color: var(--dark-100);
+  color: var(--tint);
   font-size: var(--scale-12);
   ${(props) => props.customStyles}
 `;
