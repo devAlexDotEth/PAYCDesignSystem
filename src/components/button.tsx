@@ -64,8 +64,9 @@ const El = styled.button(({ size = 'S', iconOnly = false, active, disabled, vari
     }), 
   }),
   ...(disabled && {
-    cursor: 'not-allowed',
+    pointerEvents: 'none',
     background: 'var(--dark-100)',
+    opacity: 0.2,
   }),
   ...(localStyles)
 }));

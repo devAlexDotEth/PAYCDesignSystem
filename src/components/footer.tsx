@@ -50,15 +50,6 @@ export const Footer: FC<Props> = ({socials, contactNavigation, ethPrice = '1,701
         }}>
           Pepe Ape Yacht Club ™
         </Body>
-        <Button size='S' variant='TERTIARY' onClick={contactNavigation} 
-          localStyles={{
-            display: 'none', 
-            '@media (min-width: 1080px)': {
-              display: 'inline-flex'
-            }
-          }}>
-            Contact us
-        </Button>
         <Button size='S' variant='SECONDARY' onClick={contactNavigation} 
           localStyles={{
             width: '100%', 
