@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Body from '../components/body';
 import Button from '../components/button';
 import Heading from '../components/heading';
@@ -32,6 +32,8 @@ import LegendsPFP from '../assets/pfp/legends.png';
 import MutantsPFP from '../assets/pfp/mutants.png';
 import SerumPFP from '../assets/pfp/serum.png';
 import ElementalsPFP from '../assets/pfp/elementals.png';
+import Dialog from '../components/dialog';
+import DialogHeader from "../assets/dialog-header.png";
 
 export const DesignSystem: FC<{}> = () => {
   
@@ -48,6 +50,8 @@ export const DesignSystem: FC<{}> = () => {
   const LinkSnippet = `<Link href="#">Link</Link>`;
   const LinkBeforeSnippet = `<Link before={<Discord />} href="#">Link</Link>`;
   const LinkAfterSnippet = `<Link after={<Twitter />} href="#">Link</Link>`;
+
+  const [isRevealed, setIsRevealed] = useState(true);
 
   return (
     <>
@@ -365,6 +369,14 @@ export const DesignSystem: FC<{}> = () => {
           <Body size="M" weight='BOLD' theme='DARK'>The green pepe ape jumps over the lazy toad</Body>
           <Body size="L" weight='BOLD' theme='DARK'>The green pepe ape jumps over the lazy toad</Body>
         </Stack>
+
+        {/* DIALOG */}
+        {isRevealed &&
+        <Dialog backdropClose={() => setIsRevealed(!isRevealed)} image={DialogHeader}>
+          <Body size='L'>Sheesh! Please select 1 NFT</Body>
+          <Button size='M' variant="PRIMARY" onClick={() => setIsRevealed(!isRevealed)}>Ok</Button>
+        </Dialog>
+      }
 
         {/* FOOTER */}
         <Footer
