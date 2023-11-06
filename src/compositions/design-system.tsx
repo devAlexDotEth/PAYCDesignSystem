@@ -51,7 +51,7 @@ export const DesignSystem: FC<{}> = () => {
   const LinkBeforeSnippet = `<Link before={<Discord />} href="#">Link</Link>`;
   const LinkAfterSnippet = `<Link after={<Twitter />} href="#">Link</Link>`;
 
-  const [isRevealed, setIsRevealed] = useState(true);
+  const [isRevealed, setIsRevealed] = useState(false);
 
   return (
     <>
@@ -199,6 +199,20 @@ export const DesignSystem: FC<{}> = () => {
             <Heading level="3">Component / Logo</Heading>
           </Box>
           <Logo />
+        </Stack>
+
+        {/* DIALOG */}
+        <Stack space={'var(--scale-24)'} direction='VERTICAL' localStyles={{padding: 'var(--scale-48)', alignItems: "start"}}>
+          <Box localStyles={{ marginBottom: 'var(--scale-24)' }}>
+            <Heading level="3" theme='LIGHT'>Component / Dialog</Heading>
+          </Box>
+          <Button size='L' onClick={() => setIsRevealed(!isRevealed)}>Open Dialog</Button>
+          {isRevealed &&
+            <Dialog backdropClose={() => setIsRevealed(!isRevealed)} image={DialogHeader}>
+              <Body size='L'>Message</Body>
+              <Button size='M' variant="PRIMARY" onClick={() => setIsRevealed(!isRevealed)}>Ok</Button>
+            </Dialog>
+          }
         </Stack>
 
         {/* ICONS */}
@@ -369,14 +383,6 @@ export const DesignSystem: FC<{}> = () => {
           <Body size="M" weight='BOLD' theme='DARK'>The green pepe ape jumps over the lazy toad</Body>
           <Body size="L" weight='BOLD' theme='DARK'>The green pepe ape jumps over the lazy toad</Body>
         </Stack>
-
-        {/* DIALOG */}
-        {isRevealed &&
-        <Dialog backdropClose={() => setIsRevealed(!isRevealed)} image={DialogHeader}>
-          <Body size='L'>Sheesh! Please select 1 NFT</Body>
-          <Button size='M' variant="PRIMARY" onClick={() => setIsRevealed(!isRevealed)}>Ok</Button>
-        </Dialog>
-      }
 
         {/* FOOTER */}
         <Footer
